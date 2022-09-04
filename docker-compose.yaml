@@ -1,0 +1,35 @@
+---
+version: "3.5"
+
+services:
+  install_site:
+    build: install_site
+    ports:
+      - "80:80"
+    environment:
+      - BASE_URL=$BASE_URL
+      - EMAIL=$EMAIL
+    volumes:
+      - ./nginx.conf:/web/prowlarr.conf
+      - sites-availables:/sites-availables
+      - certs:/etc/letsencrypt
+
+  prowlarr:
+    build: ./prowlarr
+    restart: always
+    volumes:
+      - /movies:/movies
+    networks:
+      - default
+      - selfhost
+
+volumes:
+  sites-availables:
+    external: true
+  certs:
+    external: true
+
+networks:
+  default:
+  selfhost:
+    external: true
