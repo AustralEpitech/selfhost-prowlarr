@@ -17,8 +17,6 @@ services:
   prowlarr:
     build: ./prowlarr
     restart: always
-    volumes:
-      - /movies:/movies
     networks:
       - default
       - selfhost
