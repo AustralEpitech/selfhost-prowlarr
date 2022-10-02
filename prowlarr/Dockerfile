@@ -24,4 +24,4 @@ COPY --from=build /app/ .
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN useradd -m app
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["Prowlarr"]
+CMD ["./Prowlarr"]
