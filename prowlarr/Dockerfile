@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/
 COPY --from=build /app/ .
 COPY docker-entrypoint.sh /usr/local/bin/
+VOLUME /config/
 RUN useradd -m app
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["./Prowlarr"]

@@ -17,6 +17,8 @@ services:
   prowlarr:
     build: prowlarr/
     restart: always
+    volumes:
+      - config:/config/
     env_file:
       - .env
     networks:
@@ -24,6 +26,7 @@ services:
       - selfhost
 
 volumes:
+  config:
   sites-availables:
     external: true
   certs:

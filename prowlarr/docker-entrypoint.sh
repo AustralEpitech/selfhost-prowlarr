@@ -8,8 +8,6 @@ if [ -n "$PUID" ]; then
     usermod -u "$PUID" app
 fi
 
-if [ -n "$PGID" ] || [ -n "$PUID" ]; then
-    chown -R app:app /app/
-fi
+chown -R app:app /config/ /app/
 
 exec su app <<< "$@"
