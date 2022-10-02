@@ -2,17 +2,17 @@
 version: "3.7"
 
 services:
-  #  install_site:
-  #    build: install_site/
-  #    ports:
-  #      - "80:80"
-  #    environment:
-  #      - BASE_URL=$BASE_URL
-  #      - EMAIL=$EMAIL
-  #    volumes:
-  #      - ./nginx.conf:/web/prowlarr.conf
-  #      - sites-availables:/sites-availables
-  #      - certs:/etc/letsencrypt
+  install_site:
+    build: install_site/
+    ports:
+      - "80:80"
+    environment:
+      - BASE_URL=$BASE_URL
+      - EMAIL=$EMAIL
+    volumes:
+      - ./nginx.conf:/web/prowlarr.conf
+      - sites-availables:/sites-availables
+      - certs:/etc/letsencrypt
 
   prowlarr:
     build: prowlarr/
@@ -21,17 +21,17 @@ services:
     restart: always
     env_file:
       - .env
-        #    networks:
-        #      - default
-        #      - selfhost
-        #
-        #volumes:
-        #  sites-availables:
-        #    external: true
-        #  certs:
-        #    external: true
-        #
-        #networks:
-        #  default:
-        #  selfhost:
-        #    external: true
+    networks:
+      - default
+      - selfhost
+
+volumes:
+  sites-availables:
+    external: true
+  certs:
+    external: true
+
+networks:
+  default:
+  selfhost:
+    external: true
