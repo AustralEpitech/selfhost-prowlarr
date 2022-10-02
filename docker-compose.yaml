@@ -16,8 +16,6 @@ services:
 
   prowlarr:
     build: prowlarr/
-    ports:
-      - "8000:9696"
     restart: always
     env_file:
       - .env
