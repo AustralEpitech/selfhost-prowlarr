@@ -6,12 +6,10 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/
 
 FROM base as build
-RUN curl                                                                                                   \
-        -o prowlarr.tar.gz                                                                                 \
-        -L 'http://prowlarr.servarr.com/v1/update/develop/updatefile?os=linux&runtime=netcore&arch=x64' && \
-    tar -xf prowlarr.tar.gz &&                                                                             \
-    mv Prowlarr /app/ &&                                                                                   \
-    rm prowlarr.tar.gz
+RUN curl -L                                                                                            \
+        'http://prowlarr.servarr.com/v1/update/develop/updatefile?os=linux&runtime=netcore&arch=x64' | \
+    tar -xz &&                                                                                         \
+    mv Prowlarr /app/
 
 FROM base
 WORKDIR /app/
