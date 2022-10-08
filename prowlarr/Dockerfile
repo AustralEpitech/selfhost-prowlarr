@@ -25,4 +25,4 @@ COPY docker-entrypoint.sh /usr/local/bin/
 VOLUME /config/
 RUN useradd -m app
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["Prowlarr", "--nobrowser", "--data=/config"]
+CMD ["./Prowlarr", "--nobrowser", "--data=/config"]
