@@ -10,4 +10,4 @@ fi
 
 chown -R app:app /app/ /config/
 
-exec su app <<< "$@"
+su app -c "$*"
