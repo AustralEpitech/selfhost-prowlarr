@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   install_site:
-    build: install_site/
+    build: install_site
     ports:
       - "80:80"
     environment:
@@ -11,11 +11,11 @@ services:
       - EMAIL=$EMAIL
     volumes:
       - ./nginx.conf:/web/prowlarr.conf
-      - sites-availables:/sites-availables
-      - certs:/etc/letsencrypt
+      - sites-availables:/sites-availables/
+      - certs:/etc/letsencrypt/
 
   prowlarr:
-    build: prowlarr/
+    build: prowlarr
     restart: always
     volumes:
       - config:/config/

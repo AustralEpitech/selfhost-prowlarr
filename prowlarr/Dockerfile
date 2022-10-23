@@ -22,5 +22,6 @@ COPY --from=build /app/ .
 COPY docker-entrypoint.sh /usr/local/bin/
 VOLUME /config/
 RUN useradd -m app
+EXPOSE 9696
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["./Prowlarr", "--nobrowser", "--data=/config"]
