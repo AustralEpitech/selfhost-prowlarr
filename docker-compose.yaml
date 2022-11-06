@@ -16,7 +16,7 @@ services:
 
   prowlarr:
     build: prowlarr
-    restart: always
+    restart: unless_stopped
     volumes:
       - config:/config/
     env_file:
