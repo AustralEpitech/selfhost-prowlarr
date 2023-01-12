@@ -1,3 +1,0 @@
-[submodule "install_site"]
-	path = install_site
-	url = https://github.com/AustralEpitech/selfhost-install_site.git

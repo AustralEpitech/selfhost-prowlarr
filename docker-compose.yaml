@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   install_site:
-    build: install_site
+    image: git.maby.dev/organization/install_site:0.2
     ports:
       - "80:80"
     environment:
